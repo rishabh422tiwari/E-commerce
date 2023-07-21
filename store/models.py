@@ -16,31 +16,25 @@ class Product(models.Model):
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
     inventory = models.IntegerField() 
     last_update = models.DateTimeField(auto_now=True)
-    Collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
+    collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
     promotions = models.ManyToManyField(Promotion)
 
 class Customer(models.Model):
-    MEMEBERSHIP_BRONZE = 'B'
-    MEMEBERSHIP_SILVER = 'S'
-    MEMEBERSHIP_GOLD = 'G'
+    MEMBERSHIP_BRONZE = 'B'
+    MEMBERSHIP_SILVER = 'S'
+    MEMBERSHIP_GOLD = 'G'
 
-    MEMEBERSHIP_CHOICES = [
-        (MEMEBERSHIP_BRONZE, 'Bronze'),
-        (MEMEBERSHIP_SILVER, 'Silver'),
-        (MEMEBERSHIP_GOLD, 'Gold'),
+    MEMBERSHIP_CHOICES = [
+        (MEMBERSHIP_BRONZE, 'Bronze'),
+        (MEMBERSHIP_SILVER, 'Silver'),
+        (MEMBERSHIP_GOLD, 'Gold'),
     ]
     first_name = models.CharField(max_length=255) 
     last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True) 
-    memebrship = models.CharField(max_length=1, choices=MEMEBERSHIP_CHOICES, default=MEMEBERSHIP_BRONZE)
-
-    class Meta:
-        db_table = 'store_customers'
-        indexes = [
-            models.Index(fields=['last_name', 'first_name'])
-        ]
+    membership = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE)
 
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
