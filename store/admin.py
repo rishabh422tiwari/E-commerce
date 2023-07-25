@@ -14,16 +14,13 @@ class InventoryFilter(admin.SimpleListFilter):
     parameter_name = 'inventory'
 
     def lookups(self, request, model_admin):
-        return [
+        return [ 
             ('<10','Low')
         ]
 
     def queryset(self, request, queryset):
         if self.value() == '<10':
             queryset.filter(inventory__lt=10)
-    
-
-
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -75,7 +72,7 @@ class CollectionAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request: HttpRequest) -> QuerySet[Any]:
         return super().get_queryset(request).annotate(
-            products_count = Count('product')
+            products_count = Count('products')
         )
 
 @admin.register(models.Customer)
