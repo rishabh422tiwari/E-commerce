@@ -2,6 +2,8 @@ from typing import Type
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.db.models.options import Options
+from uuid import uuid4
+import uuid
 
 # Create your models here.
 class Promotion(models.Model):
@@ -91,12 +93,19 @@ class Address(models.Model):
         Customer, on_delete=models.CASCADE, primary_key=True) # if PK set to false its one to many
 
 class Cart(models.Model):
+    # id = models.UUIDField(primary_key=True, default=uuid4)
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     created_at = models.DateField(auto_now_add=True)
 
 class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveSmallIntegerField()
+    quantity = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(1)]
+    )
+
+    class Meta:
+        unique_together = [['cart', 'product']]
 
 class Review(models.Model):
     product = models.ForeignKey(
