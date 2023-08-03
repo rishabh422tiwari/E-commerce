@@ -12,6 +12,11 @@ drf-nested-routers = "*"
 django-filter = "*"
 djoser = "*"
 pillow = "*"
+django-cors-headers = "*"
+django-templated-mail = "*"
+redis = "*"
+celery = "*"
+flower = "*"
 
 [dev-packages]
 
