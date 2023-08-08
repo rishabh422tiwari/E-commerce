@@ -140,3 +140,5 @@ class ProductImageViewSet(ModelViewSet):
     
     def get_queryset(self):
         return ProductImage.objects.filter(product_id=self.kwargs['product_pk'])
+
+    
