@@ -10,7 +10,7 @@ DATABASES = {
         'NAME': 'storefront', 
         'USER': 'postgres',
         'PASSWORD': 'Rishabh422@',
-        'HOST': '127.0.0.1', 
+        'HOST': 'localhost', 
         'PORT': '5432',
     }
 }
