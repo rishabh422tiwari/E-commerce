@@ -27,7 +27,7 @@ CACHES = {
         }
     }
 }
-
+#lksm
 EMAIL_HOST = 'localhost'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
