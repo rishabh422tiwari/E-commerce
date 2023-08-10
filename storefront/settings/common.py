@@ -156,18 +156,13 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8001',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'localhost'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 2525
 DEFAULT_FROM_EMAIL = 'from@moshbut.com'
 
 ADMINS = [
     ('Mosh', 'admin@moshbuy.com')
 ]
 
-CELERY_BROKER_URL = 'redis://localhost:6379/1'
+
 CELERY_BEAT_SCHEDULE = {
     'notify_customers': {
         'task': 'playground.tasks.notify_customers',
@@ -176,16 +171,7 @@ CELERY_BEAT_SCHEDULE = {
     }
 }
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/2",
-        "TIMEOUT": 10 * 60,
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
-    }
-}
+
 
 LOGGING = {
     'version': 1,

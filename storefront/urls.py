@@ -22,7 +22,6 @@ from django.urls import path, include
 admin.site.site_header = 'Sotefront Admin'
 admin.site.index_title = 'Admin'
 
-
 urlpatterns = [
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
@@ -36,3 +35,4 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     # urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
+
