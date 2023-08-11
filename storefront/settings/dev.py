@@ -14,7 +14,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-#klfv
+#klf
 CELERY_BROKER_URL = 'redis://localhost:6379/1'
 
 CACHES = {
