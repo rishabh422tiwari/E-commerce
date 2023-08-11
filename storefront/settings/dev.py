@@ -11,10 +11,10 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Rishabh422@',
         'HOST': 'localhost', 
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
-
+#klfv
 CELERY_BROKER_URL = 'redis://localhost:6379/1'
 
 CACHES = {
