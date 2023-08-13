@@ -55,7 +55,7 @@ MIDDLEWARE = [
 
 # if DEBUG:
 #     MIDDLEWARE += ['silk.middleware.SilkyMiddleware']
-
+#,djfvfv
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",
