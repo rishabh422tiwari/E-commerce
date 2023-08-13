@@ -6,7 +6,7 @@ DEBUG = False
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = ['ebuy-prod-c48346b8c923.herokuapp.com']
+ALLOWED_HOSTS = ['ebuy-prod-01536e0c8a49.herokuapp.com/']
 
 DATABASES = {
     'default': dj_database_url.config()
@@ -26,7 +26,7 @@ CACHES = {
         }
     }
 }
-#aldkc
+
 EMAIL_HOST = os.environ['MAILGUN_SMTP_SERVER']
 EMAIL_HOST_USER = os.environ['MAILGUN_SMTP_LOGIN']
 EMAIL_HOST_PASSWORD = os.environ['MAILGUN_SMTP_PASSWORD']
